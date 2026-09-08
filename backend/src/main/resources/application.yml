@@ -1,0 +1,10 @@
+# Copyright (c) 上海如静知华信息科技有限公司 | https://www.zhuatech.cn/
+spring:
+ application: {name: zhuatech-aieval}
+ datasource:
+  url: ${DB_URL:jdbc:mysql://localhost:3306/zhuatech_aieval?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false}
+  username: ${DB_USERNAME:zhuatech}
+  password: ${DB_PASSWORD:zhuatech_dev_password}
+ jpa: {open-in-view: false, hibernate: {ddl-auto: validate}}
+ flyway: {enabled: true}
+app.security: {admin-password: ${APP_ADMIN_PASSWORD:zhuatech-demo-admin}, auditor-password: ${APP_AUDITOR_PASSWORD:zhuatech-demo-auditor}}

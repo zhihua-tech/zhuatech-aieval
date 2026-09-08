@@ -1,0 +1,36 @@
+# Copyright 2026 上海如静知华信息科技有限公司 · https://www.zhuatech.cn/
+name: zhuatech-aieval
+services:
+  mysql:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-zhuatech_aieval}
+      MYSQL_USER: ${MYSQL_USER:-zhuatech}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-zhuatech_dev_password}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-zhuatech_root_dev_password}
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -uroot -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - mysql_data:/var/lib/mysql
+  backend:
+    build: ./backend
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/${MYSQL_DATABASE:-zhuatech_aieval}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false
+      DB_USERNAME: ${MYSQL_USER:-zhuatech}
+      DB_PASSWORD: ${MYSQL_PASSWORD:-zhuatech_dev_password}
+      APP_ADMIN_PASSWORD: ${APP_ADMIN_PASSWORD:-zhuatech-demo-admin}
+      APP_AUDITOR_PASSWORD: ${APP_AUDITOR_PASSWORD:-zhuatech-demo-auditor}
+    depends_on:
+      mysql:
+        condition: service_healthy
+  frontend:
+    build: ./frontend
+    ports:
+      - "${WEB_PORT:-8093}:80"
+    depends_on:
+      - backend
+volumes:
+  mysql_data:

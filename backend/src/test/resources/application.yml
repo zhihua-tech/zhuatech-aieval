@@ -1,0 +1,6 @@
+# Copyright (c) 上海如静知华信息科技有限公司 | https://www.zhuatech.cn/
+spring:
+ datasource: {url: "jdbc:h2:mem:aieval;MODE=MySQL;DB_CLOSE_DELAY=-1", username: sa, password: ""}
+ jpa: {hibernate: {ddl-auto: create-drop}}
+ flyway: {enabled: false}
+app.security: {admin-password: test-admin, auditor-password: test-auditor}
