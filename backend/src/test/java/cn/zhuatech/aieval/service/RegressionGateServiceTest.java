@@ -13,10 +13,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class RegressionGateServiceTest {
     private EvaluationAuditRepository repository;
     private RegressionGateService service;
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @BeforeEach
     void setUp() {
         repository = mock(EvaluationAuditRepository.class);
@@ -25,6 +31,9 @@ class RegressionGateServiceTest {
                 new EvaluationAudit("baseline", "PASS", .95, 1.0, "baseline", "admin")));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void promotesCandidateInsideRegressionLimits() {
         when(repository.findByRequestId("candidate")).thenReturn(Optional.of(
@@ -35,6 +44,9 @@ class RegressionGateServiceTest {
         assertThat(result.passRateDrop()).isEqualTo(.02);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void blocksRegressionAndFailedCandidate() {
         when(repository.findByRequestId("candidate")).thenReturn(Optional.of(
@@ -44,6 +56,9 @@ class RegressionGateServiceTest {
         assertThat(result.blockers()).contains("候选评测未通过发布门禁", "平均质量分回退超过阈值", "用例通过率回退超过阈值");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void rejectsSameRunAndMissingRun() {
         assertThatThrownBy(() -> service.evaluate(new RegressionGateService.Request("baseline", "baseline", 0, 0)))
@@ -52,6 +67,9 @@ class RegressionGateServiceTest {
                 .isInstanceOf(ResponseStatusException.class);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test
     void blocksSmallRegressionThatWouldRoundToZero() {
         when(repository.findByRequestId("candidate")).thenReturn(Optional.of(
