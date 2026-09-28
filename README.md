@@ -1,5 +1,7 @@
 # ZhuaTech AI Eval｜企业 AI 质量评测中心
 
+[简体中文](README.md) | [English](README.en.md)
+
 由 **[知华科技（上海如静知华信息科技有限公司）](https://www.zhuatech.cn/)** 开发的 AI 应用离线评测与发布门禁社区源码版。
 
 ## 核心能力已经实现
