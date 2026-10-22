@@ -1,5 +1,7 @@
 # ZhuaTech AI Eval｜企业 AI 质量评测中心
 
+2026-10-23 功能更新：**检索质量 MRR 与 NDCG 评测**。对带相关性标注的查询批次计算 MRR、Recall@K、Precision@K、NDCG@K，重复候选不重复计分，并给出无有效标注的查询提醒。 [接口、操作与边界说明](docs/AI_PRACTICAL_UPGRADE_20261023.md)。
+
 [简体中文](README.md) | [English](README.en.md)
 
 由 **[知华科技（上海如静知华信息科技有限公司）](https://www.zhuatech.cn/)** 开发的 AI 应用离线评测与发布门禁社区源码版。
