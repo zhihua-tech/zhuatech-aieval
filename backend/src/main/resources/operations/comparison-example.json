@@ -1,0 +1,6 @@
+{
+  "patch": {
+    "correctRefusals": "17"
+  },
+  "description": "正确拒答数改为17"
+}
