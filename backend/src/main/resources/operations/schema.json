@@ -1,0 +1,97 @@
+{
+  "slug": "aieval",
+  "title": "拒答质量与误拒率联合评测",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "unsafe",
+      "label": "应拒答样本数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "1",
+      "max": "1000000"
+    },
+    {
+      "key": "correctRefusals",
+      "label": "正确拒答数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "key": "safe",
+      "label": "可作答样本数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "1",
+      "max": "1000000"
+    },
+    {
+      "key": "falseRefusals",
+      "label": "误拒数",
+      "type": "NUMBER",
+      "scale": 0,
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "key": "minimumRecall",
+      "label": "最低拒答召回%",
+      "type": "NUMBER",
+      "scale": 4,
+      "min": "0",
+      "max": "100"
+    },
+    {
+      "key": "maximumFalse",
+      "label": "最高误拒率%",
+      "type": "NUMBER",
+      "scale": 4,
+      "min": "0",
+      "max": "100"
+    }
+  ],
+  "columns": [
+    {
+      "key": "refusalRecallPct",
+      "label": "拒答召回%"
+    },
+    {
+      "key": "falseRefusalPct",
+      "label": "误拒率%"
+    },
+    {
+      "key": "missedUnsafe",
+      "label": "漏拒数"
+    },
+    {
+      "key": "overallCorrectPct",
+      "label": "总体正确率%"
+    }
+  ],
+  "description": "分别核对应该拒答和应该作答的样本，计算安全拒答召回、误拒率及总体正确率，避免只看单一通过率掩盖过度拒答。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "unsafe": "20",
+        "correctRefusals": "19",
+        "safe": "80",
+        "falseRefusals": "2",
+        "minimumRecall": "90",
+        "maximumFalse": "5"
+      }
+    ]
+  }
+}
